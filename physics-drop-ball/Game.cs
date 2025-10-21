@@ -37,7 +37,11 @@ namespace MohawkGame2D
 
             // Draw ball
             Draw.FillColor = color;
-            Draw.Circle(position, radius);
+
+            float angle = Time.SecondsElapsed * MathF.Tau / 1;
+            float w = MathF.Cos(angle) * radius * 2;
+            float h = MathF.Sin(angle) * radius * 2;
+            Draw.Ellipse(position.X, position.Y, w, h);
         }
 
         void ApplyGravity()
